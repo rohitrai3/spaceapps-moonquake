@@ -32,7 +32,6 @@ async function init() {
     lightPosition,
     directionalLightIntensity
   );
-  directionalLight.position.y += 10;
   const ambientLight = getAmbientLight(ambientLightIntensity);
 
   const orbitControls = new OrbitControls(camera, labelRenderer.domElement);
@@ -55,8 +54,6 @@ async function init() {
     uniforms
   );
 
-  const clock = new THREE.Clock();
-
   const sphereGeometry = new THREE.SphereGeometry(0.1);
   const sphereMaterial = new THREE.MeshBasicMaterial({
     color: 0xff0000,
@@ -76,7 +73,7 @@ async function init() {
       moonModel.add(apolloModel.model);
     });
 
-    // sphere.rotation.y += 0.01;
+    sphere.rotation.y += 0.01;
 
     sphere.add(directionalLight);
     scene.add(ambientLight);
