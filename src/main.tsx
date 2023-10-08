@@ -32,8 +32,8 @@ async function init() {
     lightPosition,
     directionalLightIntensity
   );
+  directionalLight.position.y += 10;
   const ambientLight = getAmbientLight(ambientLightIntensity);
-  const axesHelper = new THREE.AxesHelper(cameraDistance);
 
   const orbitControls = new OrbitControls(camera, labelRenderer.domElement);
   orbitControls.update();
@@ -63,8 +63,6 @@ async function init() {
   });
   const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
-  function loadAssets() {}
-
   function animate() {
     requestAnimationFrame(animate);
 
@@ -78,11 +76,10 @@ async function init() {
       moonModel.add(apolloModel.model);
     });
 
-    sphere.rotation.y += 0.01;
+    // sphere.rotation.y += 0.01;
 
     sphere.add(directionalLight);
     scene.add(ambientLight);
-    scene.add(axesHelper);
     scene.add(moonModel);
     scene.add(sphere);
 
